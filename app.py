@@ -1,34 +1,35 @@
 from flask import Flask, render_template
+import praw
+import pandas as pd  
+import datetime as dt  
+
 app = Flask(__name__)
 
-SECRET_14 = "MOw9i0pU3SPF9A"
-SECRET_23 = "4uV_pssc9L7ZYsBBEVVlXwroOhk"
+SECRET_14 = "4NcuhiVc1XT2lQ"
+SECRET_27 = "CqgdWlimZCadgIYnxKRCrSva3EA"
 
-posts = [
-	{
-		'author': 'Araki',
-		'title': 'JOJO',
-		'content': 'JOJO IS ART',
-		'date_posted': 'February 16, 2020'
-	},
-	{
-		'author': 'Araki',
-		'title': 'JOJO2',
-		'content': 'JOJO IS ART',
-		'date_posted': 'February 16, 2020'
-	}
-]
+reddit = praw.Reddit(
+	client_id = SECRET_14, 
+	client_secret = SECRET_27,
+	user_agent = "jojo",
+	username = 'CrazyDiamondDorara',
+	password = 'YoshikageKira'
+	)
+
+subreddit = reddit.subreddit('ShitPostCrusaders')
+
+top_posts = subreddit.top(limit = 5)
 
 
 @app.route("/")
 @app.route("/home")
-def home():
-	return render_template('home.html', posts = posts)
+def test():
+	return render_template('test.html', posts = top_posts)
 
 
-@app.route("/about")
-def about():
-	return render_template('about.html', title='About')
+#@app.route("/about")
+#def about():
+#	return render_template('about.html', title='About')
 
 
 

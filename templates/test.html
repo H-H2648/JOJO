@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JOJO REDDIT TOP POSTS</title>
+</head>
+<body>
+	{% for post in posts %}
+	<h1> {{post.title}} </h1>
+	<p> {{post.score}} <p>
+	{% if post.url.endswith('png') or post.url.endswith('jpg') %}
+	<img src={{post.url}}>
+	{% else %}
+	<p> {{post.url}} <p>
+	{% endif %}
+	<p> {{post.body}} </p>
+	{% endfor %}
+
+</body>
+</html>
