@@ -20,11 +20,18 @@ subreddit = reddit.subreddit('ShitPostCrusaders')
 
 top_posts = subreddit.top(limit = 100)
 
+LST = []
+
+for post in top_posts:
+	LST.append(post)
+
+top_posts = LST
+
 
 @app.route("/")
 @app.route("/home")
 def test():
-	return render_template('test.html', posts = top_posts)
+	return render_template('test.html', posts = top_posts, length = len(top_posts))
 
 
 #@app.route("/about")

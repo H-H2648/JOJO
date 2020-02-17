@@ -17,15 +17,15 @@ p.mix {border-style: dotted dashed solid double;}
 	<title>JOJO REDDIT TOP POSTS</title>
 </head>
 <body>
-	{% for post in posts %}
-	<h1 class="solid"> {{post.title}} </h1>
-	<p class = "dotted"> {{post.score}} <p>
-	{% if post.url.endswith('png') or post.url.endswith('jpg') %}
-	<img src={{post.url}}>
+	{% for ii in range(length) %}
+	<h1 class="solid"> Rank {{ii + 1}}: {{posts[ii].title}} </h1>
+	<p class = "dotted"> {{posts[ii].score}} <p>
+	{% if posts[ii].url.endswith('png') or posts[ii].url.endswith('jpg') %}
+	<img src={{posts[ii].url}}>
 	{% else %}
-	<p class="mix"> {{post.url}} <p>
+	<p class="mix"> {{posts[ii].url}} <p>
 	{% endif %}
-	<p class = "inset"> {{post.body}} </p>
+	<p class = "inset"> {{posts[ii].body}} </p>
 	{% endfor %}
 
 </body>
