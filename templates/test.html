@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+p.dotted {border-style: dotted;}
+p.dashed {border-style: dashed;}
+p.solid {border-style: solid;}
+p.double {border-style: double;}
+p.groove {border-style: groove;}
+p.ridge {border-style: ridge;}
+p.inset {border-style: inset;}
+p.outset {border-style: outset;}
+p.none {border-style: none;}
+p.hidden {border-style: hidden;}
+p.mix {border-style: dotted dashed solid double;}
+</style>
 	<title>JOJO REDDIT TOP POSTS</title>
 </head>
 <body>
 	{% for post in posts %}
-	<h1> {{post.title}} </h1>
-	<p> {{post.score}} <p>
+	<h1 class="solid"> {{post.title}} </h1>
+	<p class = "dotted"> {{post.score}} <p>
 	{% if post.url.endswith('png') or post.url.endswith('jpg') %}
 	<img src={{post.url}}>
 	{% else %}
-	<p> {{post.url}} <p>
+	<p class="mix"> {{post.url}} <p>
 	{% endif %}
-	<p> {{post.body}} </p>
+	<p class = "inset"> {{post.body}} </p>
 	{% endfor %}
 
 </body>

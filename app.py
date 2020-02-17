@@ -18,7 +18,7 @@ reddit = praw.Reddit(
 
 subreddit = reddit.subreddit('ShitPostCrusaders')
 
-top_posts = subreddit.top(limit = 5)
+top_posts = subreddit.top(limit = 100)
 
 
 @app.route("/")
